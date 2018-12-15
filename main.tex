@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{float}
 \usepackage[parfill]{parskip} % new line between paragraphs, no indentation
 \usepackage[colorlinks,pdfstartview=FitH,citecolor=blue]{hyperref}
 \usepackage{xcolor}
@@ -28,14 +29,14 @@
 
 \section{AOD/PM2.5 measurements and visualization}
 
-\subsection{\citet{van2006estimating}}
+\paragraph{\citet{van2006estimating}}
 \begin{itemize}
     \item \textbf{Not plotting annual mean PM2.5 with few daily coverage}: White areas indicate ocean or regions with AOD measurements on fewer than either 40\% of days for MODIS or 8\% of days for MISR.
     \item AQS and NAPS (Canada): Both networks collect continuous measurements primarily from tapered element oscillating microbalance (\textbf{TEOM}) instruments, which infer the collected PM2.5 mass from changes in the natural frequency of the oscillator. 
     \item \textbf{AERONET AOD uncertainty}:  AERONET measurements of AOD have an uncertainty of $\sim$0.01 -- 0.02 \citep{holben2001emerging}.
 \end{itemize}
 
-\subsection{\citet{van2010global}}
+\paragraph{\citet{van2010global}}
 \begin{itemize}
     \item Point measurements collected at monitoring sites are not necessarily representative of regional concentration, and regional variability is difficult to assess from point measurements alone. 
     \item When using CTM, relative humidity of PM2.5 measurements should be considered: We applied modeled relationship between aerosol mass and \textbf{relative humidity} for each aerosol type to calculate PM2.5 for relative humidity values that correspond to surface measurement standards. 
@@ -43,11 +44,21 @@
     \item Sampling errors in annual PM2.5: Sampling error of satellite-derived PM2.5 is larger in regions influenced by biomass burning, mineral dust, or persistent cloud because of a combination of large seasonal variability and nonrepresentative sampling. We applied the ratio of complete to coincident mean simulated PM2.5 to reduce uncertainty from sampling variability.
 \end{itemize}
 
+\paragraph{\citet{zimmerman2018machine}}
+\begin{itemize}
+    \item The variable importance of random forest from different models (e.g., daily models) can be visualized as box plots
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{img/rf_imp.png}
+        \label{fig:rf_imp}
+    \end{figure}
+\end{itemize}
+
 % =================================
 
 \section{Factors affecting PM2.5 estimation from satellite AOD}
 
-\subsection{\citet{van2006estimating}}
+\paragraph{\citet{van2006estimating}}
 \begin{itemize}
     \item Empirical relationships between remotely measured AOD and surface PM2.5 have been developed for the southeast United States using both MODIS and MISR. A common concern is the dependence upon several factors in addition to the AOD measurement, including the \textbf{aerosol vertical profile, aerosol type and atmospheric conditions}. 
     \item \textbf{Important factors} in PM2.5 estimation:  
@@ -58,7 +69,7 @@
     \item Despite large AOD over and downwind of the Sahara, low PM2.5 concentrations ($< 5 \mu g/m^3$) result from strong vertical mixing and a large coarse aerosol fraction.
 \end{itemize}
 
-\subsection{\citet{van2010global}}
+\paragraph{\citet{van2010global}}
 \begin{itemize}
     \item The applicability of AOD to surface air quality depends on several factors, including the \textbf{vertical structure, composition, size distribution, and water content of atmospheric aerosol}.
     \item $PM2.5=\eta\times AOD$
@@ -74,7 +85,7 @@
 
 \section{CTM AOD and PM2.5}
 
-\subsection{\citet{van2010global}}
+\paragraph{\citet{van2010global}}
 \begin{itemize}
     \item Satellite/CTM-derived PM2.5 is better than CTM PM2.5:  Notably, this level of agreement with ground-based PM2.5 significantly better than that obtained using a global CTM (GEOS-Chem) without satellite data. 
 \end{itemize}
@@ -83,19 +94,21 @@
 
 \section{AOD/PM2.5 distributions and sources}
 
-\subsection{\citet{van2006estimating}}
+\paragraph{\citet{van2006estimating}}
 \begin{itemize}
     \item Elevated PM2.5 in \textbf{California} is associated with high emissions of aerosol precursors and topography that is exacerbated in winter by low mixing height, coupled with the thermodynamic tendency for ammonium nitrate to exist in aerosol phase at lower wintertime temperatures. 
     \item Southeastern PM2.5 concentrations in the US are driven largely by organics, emitted directly by fires and formed as secondary organic aerosol from biogenic hydrocarbons; processes which are most active during warm seasons \citep{malm2004spatial}.
     \item \textbf{Lower quality of PM2.5 in the Western US}: The daily variation in remote-sensed PM2.5 was more consistent with surface measurements in eastern North America (r = 0.5 -- 0.8) than in the western North America (r = 0 -- 0.35) for both MODIS and MISR.  Removing California from the comparison increases the correlation and slope to 0.61 and 0.68 for MISR and 0.80 and 0.89 for AERONET, with little effect on the comparison with MODIS.
 \end{itemize}
 
-\subsection{\citet{van2010global}}
+\paragraph{\citet{van2010global}}
 \begin{itemize}
     \item Both MODIS and MISR data sets exhibit similar AOD values of 0.15 -- 0.25 over the eastern United States, which reflect a combination of anthropogenic and biogenic sources.
     \item Indo-Gangetic plain, from New Delhi eastward contains the highest PM2.5 concentrations in India, with values of $80 - 100 \mu g/m^3$, especially in winter. 
     \item The effects of biomass burning on PM2.5 levels are visible in central South America and central Africa, where we estimated concentrations of $10 - 17 \mu g/m^3$. Dust transport in the fine mode is substantial \citep{jones2007modis} and contributes to large-scale PM2.5 of approximately $20 - 50 \mu g/m^3$ in the Middle East.
 \end{itemize}
+
+\newpage
 
 \bibliographystyle{abbrvnat}
 \bibliography{references}
